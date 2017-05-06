@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Super Sprinter 3000</title>
+</head>
+
+<body>
+
+<h1>User Story Manager</h1>
+
+<form action="/story"><input type="submit" name="addnew" id ="addnew" value="Add new user story"/></form>
+
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Story Title</th>
+        <th>User Stroy</th>
+        <th>Acceptance Criteria</th>
+        <th>Business Value</th>
+        <th>Estimation</th>
+        <th>Status</th>
+        <th>Edit</th>
+        <th>Delete</td>
+    </tr>
+    {% for story in stories%}
+        <tr>
+            <td>{{loop.index}}.</td>
+            <td>{{story.storytitle}}</td>
+            <td>{{story.userstory}}</td>
+            <td>{{story.acceptcrit}}</td>
+            <td>{{story.business}}</td>
+            <td>{{story.time}}</td>
+            <td>{{story.status}}</td>
+            <td align="center"><a href="/story/{{loop.index}}"><img src="/static/edit.png" width="30" height="30"></img></a></td>
+            <td align="center"><a href="/delete/{{loop.index}}"><img src="/static/delete.png" width="30" height="30"></img></a></td>
+        </tr>
+    {% endfor %}
+
+    </tr>
+</table>
+
+</body>
+
+</html>

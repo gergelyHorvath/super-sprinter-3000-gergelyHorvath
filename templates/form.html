@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Super Sprinter 3000 {{string}}</title>
+</head>
+
+<body>
+
+<h1>User Stroy Manager {{string}}</h1>
+
+<form action="/modify/{{idx}}"> 
+
+<p><label for="storytitle"><strong>Story Title</strong></label></p>
+<p><input name="storytitle" id="storytitle" value="{{story.storytitle}}" size="120"/></p>
+
+<p><label for="userstory"><strong>User Story</strong></label></p>
+<p><textarea name="userstory" id="userstory" rows="6" cols="120">{{story.userstory}}</textarea></p>
+
+<p><label for="acceptcrit"><strong>Acceptance Criteria</strong></label></p>
+<p><textarea name="acceptcrit" id="acceptcrit" rows="6" cols="120">{{story.acceptcrit}}</textarea></p>
+
+<p><label for="business"><strong>Business Value</strong></label></p>
+<p><input type="number" name="business" id="business" value="{{story.business|int}}" min="100" max="1500" step="100"/></p>
+
+<p><label for="time"><strong>Estimation(h)</strong></label></p>
+<p><input type="number" name="time" id="time" value="{{story.time|int}}" min="0.5" max="40" step="0.5"/></p>
+
+<p><label for="status"><strong>Status</strong></label></p>
+<p><select name="status" id="status"> 
+    <option>{{story.status}}</option>
+    {% for option in ('Planning', 'TODO', 'In Progress', 'Review', 'Done') %}
+        {%if option != story.status %}
+            <option>{{option}}</option>
+        {% endif %}
+    {% endfor %}
+</select></p>
+
+<input type="submit" id="submit" value="{{button}}">
+
+</form>
+
+</body>
+
+</html>
